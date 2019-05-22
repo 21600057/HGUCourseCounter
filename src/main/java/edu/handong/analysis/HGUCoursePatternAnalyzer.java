@@ -10,7 +10,8 @@ import edu.handong.analysis.datamodel.Student;
 import edu.handong.analysise.utils.NotEnoughArgumentException;
 import edu.handong.analysise.utils.Utils;
 
-public class HGUCoursePatternAnalyzer {
+public class HGUCoursePatternAnalyzer
+{
 
 	private HashMap<String,Student> students;
 	
@@ -19,13 +20,16 @@ public class HGUCoursePatternAnalyzer {
 	 * Run method must not be changed!!
 	 * @param args
 	 */
-	public void run(String[] args) {
+	public void run(String[] args) 
+	{
 		
-		try {
+		try 
+		{
 			// when there are not enough arguments from CLI, it throws the NotEnoughArgmentException which must be defined by you.
 			if(args.length<2)
 				throw new NotEnoughArgumentException();
-		} catch (NotEnoughArgumentException e) {
+		} catch (NotEnoughArgumentException e) 
+		{
 			System.out.println(e.getMessage());
 			System.exit(0);
 		}
@@ -52,7 +56,8 @@ public class HGUCoursePatternAnalyzer {
 	 * @param lines
 	 * @return
 	 */
-	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) {
+	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) 
+	{
 		
 		// TODO: Implement this method
 		
@@ -72,7 +77,8 @@ public class HGUCoursePatternAnalyzer {
 	 * @param sortedStudents
 	 * @return
 	 */
-	private ArrayList<String> countNumberOfCoursesTakenInEachSemester(Map<String, Student> sortedStudents) {
+	private ArrayList<String> countNumberOfCoursesTakenInEachSemester(Map<String, Student> sortedStudents)
+	{
 		
 		// TODO: Implement this method
 		
