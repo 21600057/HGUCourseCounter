@@ -12,7 +12,7 @@ import edu.handong.analysise.utils.Utils;
 
 public class HGUCoursePatternAnalyzer
 {
-
+ 
 	private HashMap<String,Student> students;
 	
 	/**
