@@ -61,12 +61,7 @@ public class HGUCoursePatternAnalyzer
 	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) 
 	{
 		int a=0;
-		boolean first=true;
-		int sID=1;
-		int startYear, EndYear;
-		int totalSem=0, credit1=0, credit2=0;
 		ArrayList<Course> course = new ArrayList<Course>();
-		ArrayList<String> reCourse = new ArrayList<String>();
 		
 		for (String s : lines)
 		{
@@ -75,30 +70,9 @@ public class HGUCoursePatternAnalyzer
 		
 		for (a=0; a<course.size(); a++)
 		{
-			if (sID == Integer.parseInt(course.get(a).getStudentId()))
-			{
-				if (first == true)
-				{
-					first=false;
-					totalSem++;
-					startYear = course.get(a).getYearTaken();
-				}
-				
-				if (startYear == course.get(a).getYearTaken())
-					credit1 += Integer.parseInt(course.get(a).getCourseCredit());
-				
-				if (startYear != course.get(a).getYearTaken())
-				{
-					
-				}
-			}
 
-			else 
-			{
-				sID++;
-			}			
 		}
-		return null; // do not forget to return a proper variable.
+		return students;
 		
 	}
 	/**
