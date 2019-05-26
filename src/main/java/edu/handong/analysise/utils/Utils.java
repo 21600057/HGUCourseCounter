@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.io.*;
 import java.util.Scanner;
 
-import org.apache.commons.math3.geometry.euclidean.twod.Line;
+//import org.apache.commons.math3.geometry.euclidean.twod.Line;
 
 public class Utils 
 {

@@ -39,8 +39,8 @@ public class HGUCoursePatternAnalyzer
 		ArrayList<String> lines = Utils.getLines(dataPath, true);
 		Utils.writeAFile(lines, resultPath);
 	}
-}
-		//students = loadStudentCourseRecords(lines);
+
+		students = loadStudentCourseRecords(lines);
 		
 		// To sort HashMap entries by key values so that we can save the results by student ids in ascending order.
 		//Map<String, Student> sortedStudents = new TreeMap<String,Student>(students); 
@@ -58,14 +58,16 @@ public class HGUCoursePatternAnalyzer
 	 * @param lines
 	 * @return
 	 */
-	/*private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) 
+	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) 
 	{
-		
-		// TODO: Implement this method
-		
+		ArrayList<Course> course = new ArrayList<Course>();
+		for (String s : lines)
+		{
+			course.add(new Course(s));
+		}
 		return null; // do not forget to return a proper variable.
-	}*/
-
+	}
+}
 	/**
 	 * This method generate the number of courses taken by a student in each semester. The result file look like this:
 	 * StudentID, TotalNumberOfSemestersRegistered, Semester, NumCoursesTakenInTheSemester
