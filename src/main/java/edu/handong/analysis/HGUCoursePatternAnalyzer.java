@@ -49,6 +49,7 @@ public class HGUCoursePatternAnalyzer
 		
 		// Write a file (named like the value of resultPath) with linesTobeSaved.
 		Utils.writeAFile(linesToBeSaved, resultPath);
+	}
 
 	
 	/**
