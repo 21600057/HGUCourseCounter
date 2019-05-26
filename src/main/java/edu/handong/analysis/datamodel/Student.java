@@ -1,5 +1,8 @@
 package edu.handong.analysis.datamodel;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Student 
 {
 	private String studentId;
@@ -13,16 +16,17 @@ public class Student
 	
 	public void addCourse(Course newRecord)
 	{
-		
 	}
 	
 	public HashMap<String,Integer> getSemestersByYearAndSemester()
 	{
+		return semestersByYearAndSemester;
 		
 	}
 	
 	public int getNumCourseInNthSementer(int semester)
 	{
+		return semester;
 		
 	}
 	
