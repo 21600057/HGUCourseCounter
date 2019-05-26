@@ -24,5 +24,49 @@ public class Course
 		yearTaken = Integer.parseInt(line.split(",")[7].trim());
 		semesterCourseTaken = Integer.parseInt(line.split(",")[8].trim());
 	}
-	//니가 원하는거 더 만들어라 getter and setter method
+	
+	public String getStudentId()
+	{
+		return studentId;
+	}
+	
+	public String getyearMonthGraduated()
+	{
+		return yearMonthGraduated;
+	}
+	
+	public String getFirstMajor()
+	{
+		return firstMajor;
+	}
+	
+	public String getSecondMajor()
+	{
+		return secondMajor;
+	}
+	
+	public String getCourseCode()
+	{
+		return courseCode;
+	}
+	
+	public String getCourseName()
+	{
+		return courseName;
+	}
+	
+	public String getCourseCredit()
+	{
+		return courseCredit;
+	}
+	
+	public int getYearTaken()
+	{
+		return yearTaken;
+	}
+	
+	public int getSemesterCourseTaken()
+	{
+		return semesterCourseTaken;
+	}
 }
