@@ -42,7 +42,7 @@ public class HGUCoursePatternAnalyzer
 		students = loadStudentCourseRecords(lines);
 		
 		// To sort HashMap entries by key values so that we can save the results by student ids in ascending order.
-		Map<String, Student> sortedStudents = new TreeMap<String,Student>(students); 
+		//Map<String, Student> sortedStudents = new TreeMap<String,Student>(students); 
 		
 		// Generate result lines to be saved.
 		//ArrayList<String> linesToBeSaved = countNumberOfCoursesTakenInEachSemester(sortedStudents);
