@@ -60,7 +60,8 @@ public class HGUCoursePatternAnalyzer
 	 */
 	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) 
 	{
-		int a=0;
+		int a=0,ct=0,gumsact=0;
+		String gumsa = null;
 		ArrayList<Course> course = new ArrayList<Course>();
 		HashMap<String,Student> hashswan = new HashMap<String,Student>();
 		ArrayList<String> newArray = new ArrayList<String>();
@@ -75,8 +76,42 @@ public class HGUCoursePatternAnalyzer
 		{
 			if (newArray.contains(course.get(a).getStudentId()) == false)
 			 newArray.add(course.get(a).getStudentId());
+		} // newArray에 학번 다들어갔음 && hashswan 에 넣을거임
+		ArrayList<Course> correct = new ArrayList<Course>();
+		
+		for (a=0; a<newArray.size();a++)
+		{
+			Student student= new Student(newArray.get(a));
+			
+			for (a=0; a<course.size(); a++)
+			{
+				for (String s : lines)
+				{
+					if (ct==0)
+					{
+						gumsa = newArray.get(gumsact);
+						gumsact++;
+						
+					}
+					if (course.get(a).getStudentId() == gumsa)
+					{
+						ct++;
+						correct.add(new Course(s));
+					}
+					if (course.get(a).getStudentId() != gumsa)
+					{
+						ct=0;
+						a-=1;
+					}
+				}
+				
+				for (int i=0; i<correct.size();i++)
+				{
+					student.addCourse(correct.get(i));
+				}
+			}
 		}
-		System.out.println(newArray);
+		
 		return hashswan;
 		
 	}
