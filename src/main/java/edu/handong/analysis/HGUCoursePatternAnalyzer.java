@@ -59,7 +59,7 @@ public class HGUCoursePatternAnalyzer
 	 * @param lines
 	 * @return
 	 */
-	private/* HashMap<String,Student>*/void loadStudentCourseRecords(ArrayList<String> lines) 
+	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) 
 	{
 		int a=0,ct=0,gumsact=0;
 		String gumsa = null;
@@ -77,10 +77,8 @@ public class HGUCoursePatternAnalyzer
 		{
 			if (newArray.contains(course.get(a).getStudentId()) == false)
 				newArray.add(course.get(a).getStudentId());
-			
-			System.out.println(newArray.get(a));
 		} // newArray에 학번 다들어갔음 && hashswan 에 넣을거임
-		/*
+		
 		int w=0;
 		
 		for (int j=0; j<newArray.size();j++)
@@ -97,8 +95,7 @@ public class HGUCoursePatternAnalyzer
 					{
 						gumsa = newArray.get(gumsact);
 						gumsact++;
-						ct++;
-						continue;
+						ct++;						
 					}
 					if (course.get(w).getStudentId().equals(gumsa))
 					{
@@ -108,7 +105,7 @@ public class HGUCoursePatternAnalyzer
 					}
 					if (course.get(w).getStudentId() != gumsa)
 					{
-						ct=0;
+						break;
 					}
 				}
 				
@@ -118,9 +115,9 @@ public class HGUCoursePatternAnalyzer
 				}
 			//}
 			hashswan.put(student.getStudentId(),student);
-			//System.out.println(hashswan.get("0001").getCourse().get(0).getCourseName());
-		}*/
-		//return hashswan;
+			System.out.println(hashswan.get("0001"));
+		}
+		return hashswan;
 		
 	}
 	/**
