@@ -39,14 +39,13 @@ public class HGUCoursePatternAnalyzer
 		ArrayList<String> lines = Utils.getLines(dataPath, true);
 	
 
-		/*students = */loadStudentCourseRecords(lines);
+		students = loadStudentCourseRecords(lines);
 		
-		//System.out.println(students.get("0001").getCourse().get(0).getCourseName());
 		// To sort HashMap entries by key values so that we can save the results by student ids in ascending order.
-//		Map<String, Student> sortedStudents = new TreeMap<String,Student>(students); 
+		Map<String, Student> sortedStudents = new TreeMap<String,Student>(students); 
 		
 		// Generate result lines to be saved.
-//		ArrayList<String> linesToBeSaved = countNumberOfCoursesTakenInEachSemester(sortedStudents);
+		ArrayList<String> linesToBeSaved = countNumberOfCoursesTakenInEachSemester(sortedStudents);
 		
 		// Write a file (named like the value of resultPath) with linesTobeSaved.
 //		Utils.writeAFile(sortedStudents, resultPath);
@@ -90,23 +89,10 @@ public class HGUCoursePatternAnalyzer
 			//{
 				for (String s : lines)
 				{
-					
-					if (ct==0)
-					{
-						gumsa = newArray.get(gumsact);
-						gumsact++;
-						ct++;						
-					}
-					if (course.get(w).getStudentId().equals(gumsa))
-					{
-						ct++;
-						correct.add(new Course(s));
-						w++;
-					}
-					if (course.get(w).getStudentId() != gumsa)
-					{
-						break;
-					}
+					 if(student.getStudentId().equals(s.split(",")[0].trim()))
+			           {
+			              correct.add(new Course(s));
+			           }
 				}
 				
 				for (int i=0; i<correct.size();i++)
@@ -115,8 +101,9 @@ public class HGUCoursePatternAnalyzer
 				}
 			//}
 			hashswan.put(student.getStudentId(),student);
-			System.out.println(hashswan.get("0001"));
 		}
+		
+		System.out.println(hashswan.get("0001").getCourse().get(0).getCourseName());
 		return hashswan;
 		
 	}
