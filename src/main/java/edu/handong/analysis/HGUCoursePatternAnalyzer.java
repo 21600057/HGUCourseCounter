@@ -39,8 +39,9 @@ public class HGUCoursePatternAnalyzer
 		ArrayList<String> lines = Utils.getLines(dataPath, true);
 	
 
-		students = loadStudentCourseRecords(lines);
+		/*students = */loadStudentCourseRecords(lines);
 		
+		//System.out.println(students.get("0001").getCourse().get(0).getCourseName());
 		// To sort HashMap entries by key values so that we can save the results by student ids in ascending order.
 //		Map<String, Student> sortedStudents = new TreeMap<String,Student>(students); 
 		
@@ -58,7 +59,7 @@ public class HGUCoursePatternAnalyzer
 	 * @param lines
 	 * @return
 	 */
-	private HashMap<String,Student> loadStudentCourseRecords(ArrayList<String> lines) 
+	private/* HashMap<String,Student>*/void loadStudentCourseRecords(ArrayList<String> lines) 
 	{
 		int a=0,ct=0,gumsact=0;
 		String gumsa = null;
@@ -75,33 +76,39 @@ public class HGUCoursePatternAnalyzer
 		for (a=0; a<course.size(); a++)
 		{
 			if (newArray.contains(course.get(a).getStudentId()) == false)
-			 newArray.add(course.get(a).getStudentId());
-		} // newArray에 학번 다들어갔음 && hashswan 에 넣을거임
-		ArrayList<Course> correct = new ArrayList<Course>();
-		
-		for (a=0; a<newArray.size();a++)
-		{
-			Student student= new Student(newArray.get(a));
+				newArray.add(course.get(a).getStudentId());
 			
-			for (a=0; a<course.size(); a++)
-			{
+			System.out.println(newArray.get(a));
+		} // newArray에 학번 다들어갔음 && hashswan 에 넣을거임
+		/*
+		int w=0;
+		
+		for (int j=0; j<newArray.size();j++)
+		{
+			Student student= new Student(newArray.get(j));
+			//System.out.println(student.getStudentId());
+			ArrayList<Course> correct = new ArrayList<Course>();
+			//for (a=0; a<course.size(); a++)
+			//{
 				for (String s : lines)
 				{
+					
 					if (ct==0)
 					{
 						gumsa = newArray.get(gumsact);
 						gumsact++;
-						
+						ct++;
+						continue;
 					}
-					if (course.get(a).getStudentId() == gumsa)
+					if (course.get(w).getStudentId().equals(gumsa))
 					{
 						ct++;
 						correct.add(new Course(s));
+						w++;
 					}
-					if (course.get(a).getStudentId() != gumsa)
+					if (course.get(w).getStudentId() != gumsa)
 					{
 						ct=0;
-						a-=1;
 					}
 				}
 				
@@ -109,10 +116,11 @@ public class HGUCoursePatternAnalyzer
 				{
 					student.addCourse(correct.get(i));
 				}
-			}
-		}
-		
-		return hashswan;
+			//}
+			hashswan.put(student.getStudentId(),student);
+			//System.out.println(hashswan.get("0001").getCourse().get(0).getCourseName());
+		}*/
+		//return hashswan;
 		
 	}
 	/**
