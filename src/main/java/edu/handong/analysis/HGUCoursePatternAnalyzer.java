@@ -141,7 +141,7 @@ public class HGUCoursePatternAnalyzer
 			
 			for (int semi=1; semi<=semCheck; semi++)
 			{
-				addString = student.getCourse().get(0).getStudentId()+","+semCheck+","+semi+","+student.getgetNumCourseInNthSementer(semi);
+				addString = student.getCourse().get(0).getStudentId()+","+semCheck+","+semi+","+student.getNumCourseInNthSementer(semi);
 				kiJaRu.add(addString);
 			}
 			
