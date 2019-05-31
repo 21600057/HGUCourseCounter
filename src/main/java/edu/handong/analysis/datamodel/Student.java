@@ -22,11 +22,14 @@ public class Student
 	public HashMap<String,Integer> getSemestersByYearAndSemester()
 	{
 		int currentYear=0;
+		int currentSem=0;
+		String key = null;
 		HashMap<String, Integer> hashBlackSwan = new HashMap<String,Integer>();
 		
 		for (int i=0; i<coursesTaken.size(); i++)
 		{
 			currentYear = coursesTaken.get(i).getYearTaken();
+			currentSem = coursesTaken.get(i).getSemesterCourseTaken();
 			
 		}
 		
