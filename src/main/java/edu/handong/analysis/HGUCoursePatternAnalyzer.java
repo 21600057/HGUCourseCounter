@@ -48,7 +48,7 @@ public class HGUCoursePatternAnalyzer
 		ArrayList<String> linesToBeSaved = countNumberOfCoursesTakenInEachSemester(sortedStudents);
 		
 		// Write a file (named like the value of resultPath) with linesTobeSaved.
-//		Utils.writeAFile(sortedStudents, resultPath);
+//		Utils.writeAFile(liensToBeSaved, resultPath);
 	}
 
 	
@@ -103,7 +103,7 @@ public class HGUCoursePatternAnalyzer
 			hashswan.put(student.getStudentId(),student);
 		}
 		
-		System.out.println(hashswan.get("0001").getCourse().get(0).getCourseName());
+		System.out.println(hashswan.get("0253").getCourse().get(1).getCourseName());
 		return hashswan;
 		
 	}
@@ -122,7 +122,35 @@ public class HGUCoursePatternAnalyzer
 	 */
 	private ArrayList<String> countNumberOfCoursesTakenInEachSemester(Map<String, Student> sortedStudents)
 	{
+		String addString = null;
+		ArrayList<String> kiJaRu = new ArrayList<String>();
+		kiJaRu.add("StudentID, TotalNumberOfSemestersRegistered, Semester, NumCoursesTakenInTheSemester"); // 첫라인 add
 		
-		return null; // do not forget to return a proper variable.
+		int semCheck=0;
+		for (String num : sortedStudents.keySet()) // 0001 ~ 0253 까지의 학번
+		{
+			Student student = sortedStudents.get(num); // 학번별 value값을 가져옴
+			
+			Map<String, Integer> sortedHashSwan = new TreeMap<String, Integer>(student.getSemestersByYearAndSemester());
+			
+			for (String key : sortedHashSwan.keySet())
+			{
+				if (semCheck < sortedHashSwan.get(key).intValue())
+				 semCheck = sortedHashSwan.get(key).intValue(); // 제일 큰게 마지막학기
+			}
+			
+			for (int semi=1; semi<=semCheck; semi++)
+			{
+				addString = student.getCourse().get(0).getStudentId()+","+semCheck+","+semi+","+student.getgetNumCourseInNthSementer(semi);
+				kiJaRu.add(addString);
+			}
+			
+		}
+		
+		
+		
+		
+		return kiJaRu;
 	}
+
 }
