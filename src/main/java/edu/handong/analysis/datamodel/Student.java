@@ -21,10 +21,16 @@ public class Student
 	
 	public HashMap<String,Integer> getSemestersByYearAndSemester()
 	{
+		int currentYear=0;
 		HashMap<String, Integer> hashBlackSwan = new HashMap<String,Integer>();
 		
+		for (int i=0; i<coursesTaken.size(); i++)
+		{
+			currentYear = coursesTaken.get(i).getYearTaken();
+			
+		}
 		
-		return semestersByYearAndSemester;
+		return hashBlackSwan;
 	}
 	
 	public int getNumCourseInNthSementer(int semester) // semester 은 들어오는 학기 -> HGUCoursePatternAnalyzer.java 에서 semi임
