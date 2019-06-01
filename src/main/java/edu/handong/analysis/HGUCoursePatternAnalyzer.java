@@ -103,7 +103,7 @@ public class HGUCoursePatternAnalyzer
 			hashswan.put(student.getStudentId(),student);
 		}
 		
-		System.out.println(hashswan.get("0253").getCourse().get(1).getCourseName());
+//		System.out.println(hashswan.get("0253").getCourse().get(1).getCourseName());
 		return hashswan;
 		
 	}
@@ -145,6 +145,10 @@ public class HGUCoursePatternAnalyzer
 				kiJaRu.add(addString);
 			}
 			
+			for (String showPrint : kiJaRu)
+			{
+				System.out.println(showPrint);
+			}
 		}
 		
 		
