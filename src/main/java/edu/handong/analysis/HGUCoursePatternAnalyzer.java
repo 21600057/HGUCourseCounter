@@ -48,7 +48,7 @@ public class HGUCoursePatternAnalyzer
 		ArrayList<String> linesToBeSaved = countNumberOfCoursesTakenInEachSemester(sortedStudents);
 		
 		// Write a file (named like the value of resultPath) with linesTobeSaved.
-//		Utils.writeAFile(liensToBeSaved, resultPath);
+		Utils.writeAFile(linesToBeSaved, resultPath);
 	}
 
 	
@@ -126,9 +126,9 @@ public class HGUCoursePatternAnalyzer
 		ArrayList<String> kiJaRu = new ArrayList<String>();
 		kiJaRu.add("StudentID, TotalNumberOfSemestersRegistered, Semester, NumCoursesTakenInTheSemester"); // 첫라인 add
 		
-		int semCheck=0;
 		for (String num : sortedStudents.keySet()) // 0001 ~ 0253 까지의 학번
 		{
+			int semCheck=0;
 			Student student = sortedStudents.get(num); // 학번별 value값을 가져옴
 			
 			Map<String, Integer> sortedHashSwan = new TreeMap<String, Integer>(student.getSemestersByYearAndSemester());
@@ -142,7 +142,7 @@ public class HGUCoursePatternAnalyzer
 			for (int semi=1; semi<=semCheck; semi++)
 			{
 				addString = student.getCourse().get(0).getStudentId()+","+semCheck+","+semi+","+student.getNumCourseInNthSementer(semi);
-				kiJaRu.add(addString);
+				kiJaRu.add(addString);			
 			}
 			
 			for (String showPrint : kiJaRu)
@@ -150,8 +150,6 @@ public class HGUCoursePatternAnalyzer
 				System.out.println(showPrint);
 			}
 		}
-		
-		
 		
 		
 		return kiJaRu;
