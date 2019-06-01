@@ -48,7 +48,7 @@ public class HGUCoursePatternAnalyzer
 		ArrayList<String> linesToBeSaved = countNumberOfCoursesTakenInEachSemester(sortedStudents);
 		
 		// Write a file (named like the value of resultPath) with linesTobeSaved.
-		Utils.writeAFile(linesToBeSaved, resultPath);
+//		Utils.writeAFile(linesToBeSaved, resultPath);
 	}
 
 	
@@ -145,10 +145,11 @@ public class HGUCoursePatternAnalyzer
 				kiJaRu.add(addString);			
 			}
 			
-			for (String showPrint : kiJaRu)
-			{
-				System.out.println(showPrint);
-			}
+			
+		}
+		for (String showPrint : kiJaRu)
+		{
+			System.out.println(showPrint);
 		}
 		
 		
