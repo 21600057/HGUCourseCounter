@@ -21,25 +21,34 @@ public class Student
 	
 	public HashMap<String,Integer> getSemestersByYearAndSemester()
 	{
-		int currentYear=0,currentSem=0, ct=0, temp=0;
+		int currentYear=0, currentSem=0, ct=0, temp=0;
 		String key = null;
 		HashMap<String, Integer> hashBlackSwan = new HashMap<String,Integer>();
+		ArrayList<String> arr = new ArrayList<String>();
 		
 		for (int i=0; i<coursesTaken.size(); i++)
 		{
 			currentYear = coursesTaken.get(i).getYearTaken();
 			currentSem = coursesTaken.get(i).getSemesterCourseTaken();
+			
 			key = Integer.toString(currentYear)+"-"+Integer.toString(currentSem); // 2002-1 이런 키를 String값으로 만들어줌.
 			
 			if (ct==0)
 			{
-				hashBlackSwan.put(key,temp); // 임시로 Integer 값을 temp로 넣어주고 HashMap에 key값을 넣어줌. (ct==0 , 첫번째니깐)
+				hashBlackSwan.put(key,++temp); // 임시로 temp 넣어주고 HashMap에 key값을 넣어줌. (ct==0 , 첫번째니깐)
 				ct=1;
 			}
 			else
 			{
-				
+				if (hashBlackSwan.containsKey(key) == false)
+					hashBlackSwan.put(key,++temp);
 			}
+			
+			if (arr.contains(key) == false)
+				arr.add(key); // arr에 key 다들어갔음 && hashBlackSwan 에 넣을거임
+
+			System.out.println(hashBlackSwan.get(key));
+
 		}
 		
 		return hashBlackSwan;
