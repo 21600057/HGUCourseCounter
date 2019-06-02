@@ -30,7 +30,6 @@ public class HGUCoursePatternAnalyzer
 	 */
 	public void run(String[] args) 
 	{
-		Options options = createOptions();
 		
 		try 
 		{
@@ -57,69 +56,10 @@ public class HGUCoursePatternAnalyzer
 		ArrayList<String> linesToBeSaved = countNumberOfCoursesTakenInEachSemester(sortedStudents);
 		
 		// Write a file (named like the value of resultPath) with linesTobeSaved.
-//		Utils.writeAFile(linesToBeSaved, resultPath);
+		Utils.writeAFile(linesToBeSaved, resultPath);
 	}
 
-	private Options createOptions() 
-	{
-		Options options = new Options();
-
-		// add options by using OptionBuilder
-		options.addOption(Option.builder("i").longOpt("input")
-				.desc("Set an input file path")
-				.hasArg()
-				.argName("Input path")
-				.required()
-				.build());		
-
-		// add options by using OptionBuilder
-		options.addOption(Option.builder("o").longOpt("output")
-				.desc("Set an output file path")
-				.hasArg()
-				.argName("Output path")
-				.required()
-				.build());		
-
-		// add options by using OptionBuilder
-		options.addOption(Option.builder("a").longOpt("analysis")
-			    .desc("1: Count courses per semester, 2: Count per course name and year")
-				.hasArg()
-				.argName("Analysis option")	
-				.required()
-				.build());		
-
-		// add options by using OptionBuilder
-		options.addOption(Option.builder("c").longOpt("coursecode")
-			    .desc("Course code for '-a 2' option")
-				.hasArg()
-				.argName("course code")	
-				.required() // only for '-a 2'
-				.build());	
-		
-		// add options by using OptionBuilder
-		options.addOption(Option.builder("s").longOpt("startyear")
-				.desc("Set the start year for analysis e.g., -s 2002")
-				.hasArg()
-				.argName("Start year for analysis")	
-				.required()
-				.build());	
-
-		// add options by using OptionBuilder
-		options.addOption(Option.builder("e").longOpt("endyear")
-				.desc("Set the end year for analysis e.g., -e 2005")
-				.hasArg()
-				.argName("End year for analysis")	
-				.required()
-				.build());	
-				
-		// add options by using OptionBuilder
-		options.addOption(Option.builder("h").longOpt("help")
-		        .desc("Show a Help page")
-				.argName("Help")	
-		        .build());
-
-		return options;
-	}
+	
 	
 	
 	/**
