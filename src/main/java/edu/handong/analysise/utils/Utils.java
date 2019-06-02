@@ -54,5 +54,6 @@ public class Utils
 		{
 			fileOut.println(lines.get(i));
 		}
+		fileOut.close();
 	}
 }
