@@ -51,7 +51,7 @@ public class Utils
 			System.exit(0);
 		}
 		for (int i=0; i<lines.size(); i++)
-		{
+		{ 
 			fileOut.println(lines.get(i));
 		}
 		fileOut.close();
