@@ -37,13 +37,13 @@ public class Main
 				return;
 			}
 			
-			if (addOptionCk == "1")
+			if (addOptionCk.equals("1"))
 			{
 				String[] runargs = {inputPath, outputPath, addOptionCk, courseCode, startYear, endYear};
 				HGUCoursePatternAnalyzer analyzer = new HGUCoursePatternAnalyzer();
 				analyzer.run(runargs);
 			}
-			if (addOptionCk == "2")
+			if (addOptionCk.equals("2"))
 			{
 				
 			}
