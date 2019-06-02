@@ -12,6 +12,8 @@ public class Main
 {
 	static String inputPath;
 	static String outputPath;
+	static String startYear, endYear;
+	static String courseCode;
 	boolean help;
 	String addOptionCk;
 	
@@ -37,8 +39,9 @@ public class Main
 			
 			if (addOptionCk == "1")
 			{
+				String[] runargs = {inputPath, outputPath, addOptionCk, courseCode, startYear, endYear};
 				HGUCoursePatternAnalyzer analyzer = new HGUCoursePatternAnalyzer();
-				analyzer.run(args);
+				analyzer.run(runargs);
 			}
 			if (addOptionCk == "2")
 			{
@@ -105,7 +108,7 @@ public class Main
 			    .desc("Course code for '-a 2' option")
 				.hasArg()
 				.argName("course code")	
-				.required() // only for '-a 2'
+				//.required() // only for '-a 2'
 				.build());	
 			
 		// add options by using OptionBuilder
