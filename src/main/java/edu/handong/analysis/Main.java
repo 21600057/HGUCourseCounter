@@ -63,6 +63,9 @@ public class Main
 			outputPath = cmd.getOptionValue("o");
 			addOptionCk = cmd.getOptionValue("a");
 			help = cmd.hasOption("h");
+			startYear = cmd.getOptionValue("s");
+			endYear = cmd.getOptionValue("e");
+			courseCode = cmd.getOptionValue("c");
 			
 		} catch (Exception e) 
 		
