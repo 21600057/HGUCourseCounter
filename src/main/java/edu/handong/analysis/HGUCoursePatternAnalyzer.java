@@ -30,7 +30,7 @@ public class HGUCoursePatternAnalyzer
 	 */
 	public void run(String[] args) 
 	{
-		Options options = createOptions();
+		//Options options = createOptions();
 		try 
 		{
 			// when there are not enough arguments from CLI, it throws the NotEnoughArgmentException which must be defined by you.
