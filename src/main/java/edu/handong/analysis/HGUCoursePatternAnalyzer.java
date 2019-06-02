@@ -5,6 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+import java.io.File;
+
 import edu.handong.analysis.datamodel.Course;
 import edu.handong.analysis.datamodel.Student;
 import edu.handong.analysise.utils.NotEnoughArgumentException;
@@ -22,7 +30,7 @@ public class HGUCoursePatternAnalyzer
 	 */
 	public void run(String[] args) 
 	{
-		
+		Options options = createOptions();
 		try 
 		{
 			// when there are not enough arguments from CLI, it throws the NotEnoughArgmentException which must be defined by you.
